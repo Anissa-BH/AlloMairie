@@ -1,0 +1,7 @@
+{
+  "name": "AlloMairie",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

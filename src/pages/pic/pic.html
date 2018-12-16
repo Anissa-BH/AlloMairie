@@ -1,0 +1,32 @@
+<!--
+  Generated template for the PicPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Picture</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	
+	<p>Souhaitez vous nous transmettre une photo du signalement?</p>
+
+	<button ion-button round (click)="getPictures()">Get Pictures</button>
+  <button ion-button round (click)="takePhoto()">Take Photo</button>
+    <div *ngFor="let image of images">
+		 	<img src="{{image}}"/>
+    </div>
+    <p align="center"><img src="{{ myphoto }}"></p>
+
+    <button ion-button round (click)="loadCategory()">Continuer</button>
+
+   
+
+</ion-content>
