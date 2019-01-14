@@ -3,5 +3,22 @@
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+
+  "proxies": [
+    {
+      "path": "/alloMairie",
+      "proxyUrl": "http://localhost:9200/alloMairie"
+    },
+    {
+      "path": "/description",
+      "proxyUrl": "http://localhost:9200/description"
+
+    },
+    {
+      "path": "/customers",
+      "proxyUrl": "http://localhost:9200/customers"
+
+    }
+  ]
 }

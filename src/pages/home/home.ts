@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { SPage } from '../s/s';
-import { LoginPage } from '../login/login';
+import { PropPage } from '../prop/prop';
+
+import { ReclamationListPage } from '../reclamationList/reclamationList';
+
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -12,12 +16,13 @@ export class HomePage {
 
   }
 
-  loads(){
-  this.navCtrl.push(SPage);
+  loadPropPage(){
+  this.navCtrl.push(PropPage);
   }
-
-  loadLoginPage(){
-  this.navCtrl.push(LoginPage)
+  
+  loadReclamationListPage(){
+    this.navCtrl.push(ReclamationListPage)
+    }
 }
 
-}
+

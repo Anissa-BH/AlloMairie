@@ -1,15 +1,12 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
-
-import { SPage } from '../s/s';
+import { HomePage } from '../home/home';
+import { CategoryPage } from '../category/category';
 import { PicPage } from '../pic/pic';
-/**
- * Generated class for the PropPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { DataProvider } from '../../services/data';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 declare var google:any;
 @IonicPage()
 @Component({
@@ -20,12 +17,25 @@ export class PropPage {
 
 @ViewChild('map') mapRef: ElementRef;
 
+id: any;
 lat: any;
 lng: any;
+adresse: any;
+categorie: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public geo: Geolocation) {
-    console.log(navParams);
-  }
+dataForm:FormGroup;
+
+  constructor( private formBuilder:FormBuilder,public navCtrl: NavController, public navParams: NavParams, public geo: Geolocation, private data:DataProvider) {
+    this.dataForm=this.formBuilder.group({
+
+      id:["",Validators.required],
+      lng:[""],
+      lat:[""],
+      adresse:[""],
+      categorie:["",Validators.required]
+      
+});
+}
 
   ionViewDidLoad() { 
 
@@ -62,15 +72,20 @@ lng: any;
    map
    });
    }
-
-
-
-  returnS(){
-  this.navCtrl.push(SPage)
+   
+  loadCategory(){
+  this.navCtrl.push(CategoryPage)
   }
- 
-  loadPic(){
-  this.navCtrl.push(PicPage)
+
+  recupereLongLat(){
+    console.log('ionViewDidLoad PropPage');
+    this.data.add(this.dataForm.value).subscribe((result: any) => {
+
+    });
+  }
+
+  loadHomePage(){
+    this.navCtrl.push(HomePage);
   }
 
 }

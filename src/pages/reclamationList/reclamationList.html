@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Liste des réclamations</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <h2>Les réclamations</h2>
+        <ion-grid>
+            <ion-row>
+                <ion-col>ID</ion-col>
+                <ion-col>Lng</ion-col>
+                <ion-col>lat</ion-col>
+                <ion-col>Adresse</ion-col>
+                <ion-col>Category</ion-col>
+            </ion-row>
+
+            <ion-row text-wrap  *ngFor="let coord of recList">
+                <ion-col>{{ coord._id }}</ion-col>
+                <ion-col>{{ coord._source.longitude }}</ion-col>
+                <ion-col>{{ coord._source.latitude }}</ion-col>
+                <ion-col>{{ coord._source.adresse }}</ion-col>
+                <ion-col>{{ coord._source.categorie }}</ion-col>
+            </ion-row>
+        </ion-grid>
+   
+   
+    
+  </ion-content>
+  
